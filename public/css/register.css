@@ -1,0 +1,108 @@
+/* Logo on top-left */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+.register-box {
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    width: 420px;
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: -5px;
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+    font-style: italic;
+}
+
+.register-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-label {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.required {
+    color: red;
+    font-weight: 600;
+}
+
+.form-control {
+    border: 2px solid #0069ae !important;
+    border-radius: 15px !important;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-register {
+    background: #0069ae;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.btn-register:hover {
+    background: #004494;
+}
+
+.back-text,
+.login-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.back-text a,
+.login-text a {
+    color: #0059b3;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.back-text a:hover,
+.login-text a:hover {
+    text-decoration: underline;
+}
