@@ -1,0 +1,150 @@
+.booking-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.booking-card {
+    display: flex;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1400px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left side gets more space */
+.booking-form {
+    flex: 2;
+    /* 2/3 width */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Right side narrower */
+.booking-info {
+    flex: 1;
+    /* 1/3 width */
+    background: #0157a4;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form h3,
+.booking-info h3 {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.underline {
+    width: 100%;
+    height: 3px;
+    background: #ddd;
+    margin: 8px 0 15px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+.validation {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
+.upload-btn {
+    background: #eee;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.submit-btn {
+    background: #0157a4;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #004080;
+}
+
+/* Right side availability */
+.time-card {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.badge.approved {
+    background: red;
+}
+
+.badge.available {
+    background: green;
+}
+
+.badge.pending {
+    background: goldenrod;
+}
+
+.note {
+    font-size: 12px;    
+}

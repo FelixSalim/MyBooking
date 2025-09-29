@@ -1,0 +1,82 @@
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 75, 160, 0.6);
+    /* blue tint overlay */
+}
+
+.navbar {
+    padding: 1rem 2rem;
+}
+
+.active {
+    border-bottom: 3px solid #fff !important;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.navbar-text {
+    font-size: 30px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    text-align: right;
+    line-height: 1;
+}
+
+.fw-normal {
+    font-weight: 400 !important;
+    font-size: 16px;
+    text-shadow: none;
+}
+
+.title-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.banner-title {
+    color: #fff;
+    margin-top: 30px;
+    font-size: 50px;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.content-box {
+    margin: 130px 0 0 0;
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    /* overlap banner if needed */
+    padding: 24px;
+}
+
+/* footer link */
+.box-footer {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.box-footer a {
+    color: #0073c9;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.box-footer a:hover {
+    text-decoration: underline;
+}
