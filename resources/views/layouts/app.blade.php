@@ -40,8 +40,8 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link @if (Request::is('home')) active @endif"
                         href="{{ route('home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link @if (Request::is('room')) active @endif"
-                        href="#">Room</a></li>
+                <li class="nav-item"><a class="nav-link @if (Request::is('bookRoom')) active @endif"
+                        href="{{ route('bookRoom') }}">Room</a></li>
             </ul>
             <span class="navbar-text fw-bold text-white">MyBooking <br>
                 <small class="fw-normal">All Your Bookings, Simplified</small>

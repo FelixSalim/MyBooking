@@ -15,12 +15,11 @@
 
         <div class="discussion-grid">
             @foreach ($discussionRooms as $room)
-                <a href="{{ route('discussion.show', $room['number']) }}" class="discussion-link" title="Book Discussion {{ $room['number'] }}">
+                <a href="{{ route('discussion.show', $room['id']) }}" class="discussion-link" title="Book Discussion {{ $room['number'] }}">
                     <div class="discussion-card">
                         <div class="discussion-image" style="background-image: url('https://picsum.photos/400/300')">
                             <div class="discussion-overlay">
-                                <span class="room-number">{{ $room['number'] }}</span>
-                                <span class="room-floor">{{ $room['floor'] }} Floor</span>
+                                <span class="room-floor">Floor {{ $room['floor_number'] }}</span>
                             </div>
                         </div>
                     </div>

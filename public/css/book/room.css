@@ -26,6 +26,10 @@
     justify-content: center;
 }
 
+.room-link {
+    text-decoration: none;
+}
+
 /* Card */
 .room-card {
     border-radius: 20px;

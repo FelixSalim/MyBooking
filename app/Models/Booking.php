@@ -1,5 +1,5 @@
 <?php
-// app/Models/Booking.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,12 +10,28 @@ class Booking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'room_id','name','role','purpose','participants',
-        'attendance_file','booking_date','start_time','end_time','status'
+        'room_id',
+        'user_id',
+        'name',
+        'role',
+        'booking_date',
+        'start_time',
+        'end_time',
+        'category',
+        'detail',
+        'purpose',
+        'participants',
+        'attendance_file',
+        'status',
     ];
 
     public function room()
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

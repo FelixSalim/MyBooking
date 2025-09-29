@@ -27,6 +27,11 @@
 
     <!-- Tab content -->
     <div class="tab-content">
+        @if (session('success'))
+            <div class="alert alert-success fade show mt-3" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- ========== BOOK TAB ========== -->
         <div class="tab-pane fade show active" id="book-content" role="tabpanel" aria-labelledby="book-tab">
             <div class="text-center">
@@ -68,15 +73,16 @@
                             <h5 class="fw-bold mb-3">Room</h5>
                             @foreach ($rooms as $room)
                                 <div
-                                    style="display:flex;align-items:center;justify-content:space-between;background:#fff;color:#000;border-radius:12px;padding:8px 12px;margin-bottom:10px;">
-                                    <div style="flex:1;font-weight:700;">{{ strtoupper($room->name) }}</div>
+                                    style="display:flex;align-items:center;justify-content:space-between;
+                background:#fff;color:#000;border-radius:12px;padding:8px 12px;margin-bottom:10px;">
+                                    <div style="flex:1.2;font-weight:700;">{{ $room->name }}</div>
                                     <div style="flex:1;text-align:center;">{{ $room->time }}</div>
                                     <div style="flex:1;text-align:center;">{{ $room->date }}</div>
                                     <div
                                         style="width:24px;height:24px;border-radius:50%;
-                  @if ($room->status == 'Approved') background:#28a745; 
-                  @elseif($room->status == 'Pending') background:#ffc107; 
-                  @elseif($room->status == 'Cancelled') background:#dc3545; @endif">
+            @if ($room->status == 'Approved') background:#28a745;
+            @elseif($room->status == 'Pending') background:#ffc107;
+            @elseif($room->status == 'Cancelled') background:#dc3545; @endif">
                                     </div>
                                 </div>
                             @endforeach
@@ -103,8 +109,9 @@
                             @foreach ($shuttles as $shuttle)
                                 <div
                                     style="display:flex;align-items:center;justify-content:space-between;background:#fff;color:#000;border-radius:12px;padding:8px 12px;margin-bottom:10px;">
-                                    <div style="flex:1;">{{ $shuttle->date }}</div>
-                                    <div style="flex:1;">{{ $shuttle->time }}</div>
+                                    <div style="flex:0.2; font-weight: 600;">{{ $shuttle->date }}</div>
+                                    <div style="flex:0; font-weight: 600;"> | </div>
+                                    <div style="flex:0.2; font-weight: 600;">{{ $shuttle->time }}</div>
                                     <div style="flex:1;display:flex;align-items:center;font-weight:700;">
                                         @if ($shuttle->direction == 'to')
                                             <i class="fas fa-map-marker-alt" style="color:#28a745;margin-right:6px;"></i>

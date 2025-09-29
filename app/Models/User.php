@@ -10,10 +10,17 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'id', 'password',
+        'id',
+        'password',
     ];
 
     protected $hidden = [
         'password',
     ];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
 }

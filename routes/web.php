@@ -15,11 +15,14 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/home', [PageController::class, 'home'])->name('home');
-Route::get('/bookRoom', [PageController::class, 'bookRoom'])->name('bookRoom');
-Route::get('/bookRoom/{roomName}', [PageController::class, 'showRoom'])->name('rooms.show');
-Route::get('/discussionForm/{id}', [PageController::class, 'discussionForm'])->name('discussion.show');
+    Route::get('/home', [PageController::class, 'home'])->name('home');
+    Route::get('/bookRoom', [PageController::class, 'bookRoom'])->name('bookRoom');
+    Route::get('/bookRoom/{roomName}', [PageController::class, 'showRoom'])->name('rooms.show');
+    Route::get('/discussionForm/{id}', [PageController::class, 'discussionForm'])->name('discussion.show');
 
-Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+});
+

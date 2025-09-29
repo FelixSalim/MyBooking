@@ -6,27 +6,31 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    public function up(): void {
+    public function up(): void
+    {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
-
-            $table->string('name');          
-            $table->string('role')->nullable(); 
-            $table->string('purpose');       
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->string('role')->nullable();
+            $table->string('purpose');
+            $table->string('detail');
             $table->integer('participants');
             $table->string('attendance_file')->nullable();
 
             $table->date('booking_date');
             $table->time('start_time');
             $table->time('end_time');
-            $table->enum('status', ['pending','approved','rejected'])->default('pending');
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
 
             $table->timestamps();
         });
+
     }
 
-    public function down(): void {
+    public function down(): void
+    {
         Schema::dropIfExists('bookings');
     }
 };
