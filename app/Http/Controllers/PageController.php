@@ -79,6 +79,7 @@ class PageController extends Controller
         } elseif ($roomName === 'amphitheater') {
         } elseif ($roomName === 'thinktank') {
         } elseif ($roomName === 'class') {
+            return $this->class();
         } else {
             abort(404);
         }
@@ -104,5 +105,34 @@ class PageController extends Controller
         return view('book.discussion-book', compact('room', 'rooms', 'waiting'));
     }
 
+    public function class() {
+        $floors = Room::where('type', 'class')
+            ->select('floor_number')->get()->map(function($item) {
+                $item->floor_number = substr($item->floor_number, 0, -2);
+                return $item;
+            });
+        $floors = $floors->unique('floor_number')->sortBy('floor_number')->values();
+
+        return view('book.class.index', compact('floors'));
+    }
+
+    public function pick_floor($floor) {
+        $rooms = Room::where('type', 'class')
+            ->whereLike('floor_number',  $floor . '%')
+            ->orderBy('name')
+            ->get();
+
+        return view('book.class.pick-room', compact('rooms', 'floor'));
+    }
+
+    public function classForm($id) {
+        $room = Room::findOrFail($id);
+        $rooms = Room::where('type', '=', 'class')->get();
+        $waiting = Booking::where('room_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('book.class.class-book', compact('room', 'rooms', 'waiting'));
+    }
 
 }

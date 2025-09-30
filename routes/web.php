@@ -24,5 +24,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/discussionForm/{id}', [PageController::class, 'discussionForm'])->name('discussion.show');
 
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+
+    Route::get('/showClass/{floor}', [PageController::class, 'pick_floor'])->name('class.show');
+    Route::get('/classForm/{id}', [PageController::class, 'classForm'])->name('class.form');
+
+    Route::post('/classBookings', [BookingController::class, 'store_class'])->name('class.bookings.store');
 });
+
 

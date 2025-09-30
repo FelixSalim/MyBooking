@@ -1,0 +1,86 @@
+.inner-title {
+    text-align: center;
+    font-weight: 700;   /* bold */
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.floor-label {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 55vh;
+}
+
+/* Grid for rooms */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    gap: 5rem;
+    justify-content: center;  /* centers the whole grid */
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+/* If last row has 3 items, they stay centered */
+.room-grid > *:nth-child(n+5) {
+    grid-column: span 1;
+}
+
+.room-card {
+    width: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Image overlay */
+.room-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-overlay {
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-style: italic;
+    padding: 1rem;
+}
+
+.room-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.room-number {
+    font-size: 1.8rem;
+}
+
+.room-floor {
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
