@@ -32,6 +32,7 @@
 </head>
 
 <body>
+    @yield('overlay')
     <nav class="navbar navbar-expand-lg navbar-dark px-5">
         <a class="navbar-brand" href="{{ route('home') }}">
             <img src="/images/bca-logo.png" alt="BCA Logo">
@@ -40,7 +41,7 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link @if (Request::is('home')) active @endif"
                         href="{{ route('home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link @if (Request::is('bookRoom')) active @endif"
+                <li class="nav-item"><a class="nav-link @if (Request::is('book*')) active @endif"
                         href="{{ route('bookRoom') }}">Room</a></li>
             </ul>
             <span class="navbar-text fw-bold text-white">MyBooking <br>

@@ -17,7 +17,7 @@
             @foreach ($rooms as $room)
                 <a href="{{ route('rooms.show', $room->name) }}" class="room-link" title="Book {{ $room->name }}">
                     <div class="room-card">
-                        <div class="room-image" style="background-image: url('https://picsum.photos/400/400');">
+                        <div class="room-image" style="background-image: url('{{ asset('images/' . $room->name . '.jpg') }}');">
                             <div class="room-overlay">
                                 <span class="room-name">{{ $room->name }}</span>
                             </div>

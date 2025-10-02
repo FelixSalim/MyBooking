@@ -49,7 +49,7 @@
                     </a>
 
                     <!-- Shuttle -->
-                    <a href="#" class="card-option" title="Book Shuttle">
+                    <a href="{{ route('bookShuttle', ['selected' => 'None']) }}" class="card-option" title="Book Shuttle">
                         <img src="https://picsum.photos/seed/shuttle/800/520" alt="Shuttle image">
                         <div class="overlay">
                             <div class="label">Shuttle</div>

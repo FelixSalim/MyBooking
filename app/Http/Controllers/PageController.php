@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shuttle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
@@ -52,23 +53,29 @@ class PageController extends Controller
         $rooms = [
             (object) [
                 'name' => 'Discussion',
-                'image' => 'https://picsum.photos/id/1011/400/300'
             ],
             (object) [
                 'name' => 'Amphitheater',
-                'image' => 'https://picsum.photos/id/1015/400/300'
             ],
             (object) [
                 'name' => 'Thinktank',
-                'image' => 'https://picsum.photos/id/1025/400/300'
             ],
             (object) [
                 'name' => 'Class',
-                'image' => 'https://picsum.photos/id/1035/400/300'
             ],
         ];
 
         return view('book.room', compact('rooms'));
+    }
+
+    public function bookShuttle($selected) {
+        $shuttles = Shuttle::select(['destination', 'capacity'])->get()->unique('destination');
+        $selected = ($selected == 'None') ? null : $selected;
+        $destination = $selected;
+        $toShuttle = Shuttle::where('destination', '=', $destination)->where('direction', '=', 'to')->first();
+        $fromShuttle = Shuttle::where('destination', '=', $destination)->where('direction', '=', 'from')->first();
+
+        return view('book.shuttle', compact('shuttles', 'selected','destination', 'fromShuttle', 'toShuttle'));
     }
 
     public function showRoom($roomName)
@@ -77,7 +84,9 @@ class PageController extends Controller
         if ($roomName === 'discussion') {
             return $this->discussion();
         } elseif ($roomName === 'amphitheater') {
+            return $this->ampitheatreForm();
         } elseif ($roomName === 'thinktank') {
+            return $this->thinktankForm();
         } elseif ($roomName === 'class') {
             return $this->class();
         } else {
@@ -133,6 +142,32 @@ class PageController extends Controller
             ->get();
 
         return view('book.class.class-book', compact('room', 'rooms', 'waiting'));
+    }
+
+    public function ampitheatreForm() {
+        $room = Room::where('type', '=', 'amphitheater')->first();
+        $rooms = Room::where('type', '=', 'amphitheater')->get();
+        $waiting = Booking::where('room_id', '=', $room->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('book.ampitheatre.ampitheatre-book', compact('room', 'rooms', 'waiting'));
+    }
+
+    public function thinktankForm() {
+        $room = Room::where('type', '=', 'thinktank')->first();
+        $rooms = Room::where('type', '=', 'thinktank')->get();
+        $waiting = Booking::where('room_id', '=', $room->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('book.thinktank.thinktank-book', compact('room', 'rooms', 'waiting'));
+    }
+
+    public function shuttleForm($id) {
+        $shuttle = Shuttle::findOrFail($id);
+
+        return view('book.shuttle-book', compact('shuttle'));
     }
 
 }

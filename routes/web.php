@@ -29,6 +29,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/classForm/{id}', [PageController::class, 'classForm'])->name('class.form');
 
     Route::post('/classBookings', [BookingController::class, 'store_class'])->name('class.bookings.store');
+
+    Route::get('/ampitheatreForm', [PageController::class, 'ampitheatreForm'])->name('ampitheatre.form');
+
+    Route::post('/ampitheatreBookings', [BookingController::class, 'store_ampitheatre'])->name('ampitheatre.bookings.store');
+
+    Route::get('/thinktankForm', [PageController::class, 'thinktankForm'])->name('thinktank.form');
+
+    Route::post('/thinktankBookings', [BookingController::class, 'store_thinktank'])->name('thinktank.bookings.store');
+
+    Route::get('/bookShuttle/{selected}', [PageController::class, 'bookShuttle'])->name('bookShuttle');
+    Route::get('/shuttleForm/{id}', [PageController::class, 'shuttleForm'])->name('shuttle.form');
 });
 
 

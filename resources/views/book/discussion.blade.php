@@ -17,7 +17,7 @@
             @foreach ($discussionRooms as $room)
                 <a href="{{ route('discussion.show', $room['id']) }}" class="discussion-link" title="Book Discussion {{ $room['number'] }}">
                     <div class="discussion-card">
-                        <div class="discussion-image" style="background-image: url('https://picsum.photos/400/300')">
+                        <div class="discussion-image" style="background-image: url('{{ asset('images/'.$room['name'].'.jpg') }}');">
                             <div class="discussion-overlay">
                                 <span class="room-floor">Floor {{ $room['floor_number'] }}</span>
                             </div>

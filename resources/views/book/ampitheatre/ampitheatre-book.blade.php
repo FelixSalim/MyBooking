@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Class Room - MyBooking')
-@section('page-title', 'Class ' . $room['floor_number'] . ' Room')
+@section('title', 'Amphitheatre Room - MyBooking')
+@section('page-title', 'Amphitheatre Room')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/book/discussion-book.css') }}">
@@ -31,7 +31,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('class.bookings.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('ampitheatre.bookings.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Booking Date --}}
@@ -96,7 +96,7 @@
 
                     {{-- Actions --}}
                     <div class="form-actions">
-                        <a href="{{ route('rooms.show', 'Class') }}" class="cancel">Cancel</a>
+                        <a href="{{ route('rooms.show', 'Amphitheatre') }}" class="cancel">Cancel</a>
                         <button type="submit" class="submit-btn">Submit</button>
                     </div>
                 </form>
