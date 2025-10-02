@@ -162,5 +162,31 @@ class BookingController extends Controller
         return redirect()->route('home')->with('success', 'Thinktank booking created successfully!');
     }
 
+    public function store_shuttle(Request $request)
+    {
+        $request->validate([
+            'shuttle_id' => 'required|exists:shuttles,id',
+            'booking_date' => 'required|date|afterOrEqual:today',
+            'name' => 'required',
+            'role' => 'required',
+            'detail' => 'required',
+            'class' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        // Assuming you have a ShuttleBooking model
+        \App\Models\ShuttleBooking::create([
+            'shuttle_id' => $request->shuttle_id,
+            'user_id' => auth()->id(), // 🔑 Link to logged-in user
+            'name' => $request->name,
+            'role' => $request->role,
+            'booking_date' => $request->booking_date,
+            'detail' => $request->detail,
+            'class' => $request->class,
+            'phone_number' => $request->phone_number,
+        ]);
+
+        return redirect()->route('home')->with('success', 'Shuttle booking created successfully!');
+    }
 
 }

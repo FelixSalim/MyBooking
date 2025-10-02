@@ -43,7 +43,9 @@
                         href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link @if (Request::is('book*')) active @endif"
                         href="{{ route('bookRoom') }}">Room</a></li>
-            </ul>
+                <li class="nav-item"><a class="nav-link @if (Request::is('book/shuttle*')) active @endif"
+                        href="{{ route('bookShuttle', 'None') }}">Shuttle</a></li>
+                    </ul>
             <span class="navbar-text fw-bold text-white">MyBooking <br>
                 <small class="fw-normal">All Your Bookings, Simplified</small>
             </span>

@@ -47,7 +47,7 @@
         <div class="card-grid">
             @foreach ($shuttles as $shuttle)
                 <a href="{{ route('bookShuttle', ['selected' => $shuttle->destination]) }}" class="card-option">
-                    <img src="https://picsum.photos/seed/shuttle{{ $shuttle->id }}/600/400" alt="Shuttle">
+                    <img src="{{ asset('images/Shuttle.jpg') }}" alt="Shuttle">
                     <div class="overlay">
                         <div class="label">{{ strtoupper($shuttle->destination) }}</div>
                         <div class="subtitle">Available : {{ $shuttle->remainingSeats(now()->toDateString()) }} seat</div>

@@ -17,7 +17,7 @@
     <div class="room-grid">
         @foreach ($rooms as $room)
         <a href="{{ route('class.form', $room->id) }}" class="room-card" title="Book {{ $room->name }}">
-            <div class="room-image" style="background-image: url('https://picsum.photos/400/300')">
+            <div class="room-image" style="background-image: url('{{ asset('images/Class.jpg') }}');">
                 <div class="room-overlay">
                     <span class="room-name">{{ $room->name }}</span>
                 </div>

@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/bookShuttle/{selected}', [PageController::class, 'bookShuttle'])->name('bookShuttle');
     Route::get('/shuttleForm/{id}', [PageController::class, 'shuttleForm'])->name('shuttle.form');
+
+    Route::post('/shuttleBookings', [BookingController::class, 'store_shuttle'])->name('shuttle.bookings.store');
 });
 
 

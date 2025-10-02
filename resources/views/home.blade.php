@@ -42,7 +42,7 @@
                 <div class="card-grid">
                     <!-- Room -->
                     <a href="{{ route('bookRoom') }}" class="card-option" title="Book Room">
-                        <img src="https://picsum.photos/seed/room/800/520" alt="Room image">
+                        <img src="{{ asset('images/Discussion Room 2.jpg') }}" alt="Room image">
                         <div class="overlay">
                             <div class="label">Room</div>
                         </div>
@@ -50,7 +50,7 @@
 
                     <!-- Shuttle -->
                     <a href="{{ route('bookShuttle', ['selected' => 'None']) }}" class="card-option" title="Book Shuttle">
-                        <img src="https://picsum.photos/seed/shuttle/800/520" alt="Shuttle image">
+                        <img src="{{ asset('images/Shuttle.jpg') }}" alt="Shuttle image">
                         <div class="overlay">
                             <div class="label">Shuttle</div>
                         </div>
@@ -109,16 +109,14 @@
                             @foreach ($shuttles as $shuttle)
                                 <div
                                     style="display:flex;align-items:center;justify-content:space-between;background:#fff;color:#000;border-radius:12px;padding:8px 12px;margin-bottom:10px;">
-                                    <div style="flex:0.2; font-weight: 600;">{{ $shuttle->date }}</div>
-                                    <div style="flex:0; font-weight: 600;"> | </div>
-                                    <div style="flex:0.2; font-weight: 600;">{{ $shuttle->time }}</div>
+                                    <div style="flex:0.4; font-weight: 600;">{{ $shuttle->booking_date }}</div>
                                     <div style="flex:1;display:flex;align-items:center;font-weight:700;">
-                                        @if ($shuttle->direction == 'to')
-                                            <i class="fas fa-map-marker-alt" style="color:#28a745;margin-right:6px;"></i>
+                                        @if ($shuttle->shuttle->direction == 'to')
+                                            <i class="fas fa-map-marker-alt me-4" style="color:#28a745;margin-right:6px;"></i>
                                         @else
-                                            <i class="fas fa-map-marker-alt" style="color:#dc3545;margin-right:6px;"></i>
+                                            <i class="fas fa-map-marker-alt me-4" style="color:#dc3545;margin-right:6px;"></i>
                                         @endif
-                                        {{ strtoupper($shuttle->destination) }}
+                                        {{ strtoupper($shuttle->shuttle->destination) }}
                                     </div>
                                     <div style="flex:0;">
                                         <i class="fas fa-edit" style="color:#333;"></i>
@@ -131,6 +129,7 @@
                                 <i class="fas fa-map-marker-alt" style="color:#28a745;margin-right:4px;"></i> To BLI &nbsp;
                                 <i class="fas fa-map-marker-alt" style="color:#dc3545;margin-right:4px;"></i> From BLI
                                 &nbsp;
+                                <br>
                                 <span>*Reschedule only until Thursday 08:00, after that not processed.</span>
                             </div>
                         </div>

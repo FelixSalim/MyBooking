@@ -23,27 +23,10 @@ class PageController extends Controller
                     'status' => ucfirst($booking->status), // Approved, Pending, Cancelled
                 ];
             });
-        
-        $shuttles = [
-            (object) [
-                'date' => '23/09',
-                'time' => '06.15',
-                'destination' => 'KELAPA GADING',
-                'direction' => 'to'   // "to" means To BLI (green marker)
-            ],
-            (object) [
-                'date' => '23/09',
-                'time' => '17.00',
-                'destination' => 'BEKASI',
-                'direction' => 'from' // "from" means From BLI (red marker)
-            ],
-            (object) [
-                'date' => '23/09',
-                'time' => '06.10',
-                'destination' => 'ALAM SUTERA',
-                'direction' => 'to'
-            ],
-        ];
+
+            $shuttles = Auth::user()->shuttleBookings()
+                ->orderBy('booking_date', 'desc')
+                ->get();
 
         return view('home', compact('rooms', 'shuttles'));
     }

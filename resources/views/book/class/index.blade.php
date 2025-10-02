@@ -17,7 +17,7 @@
             @foreach ($floors as $floor)
                 <a href="{{ route('class.show', $floor->floor_number) }}" class="discussion-link" title="Book Classroom {{ $floor->floor_number }}">
                     <div class="discussion-card">
-                        <div class="discussion-image" style="background-image: url('https://picsum.photos/400/300')">
+                        <div class="discussion-image" style="background-image: url('{{ asset('images/Class.jpg') }}');">
                             <div class="discussion-overlay">
                                 <span class="room-floor">Floor {{ $floor->floor_number }}</span>
                             </div>

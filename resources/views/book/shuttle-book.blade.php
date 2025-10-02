@@ -31,7 +31,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('bookings.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('shuttle.bookings.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Booking Date --}}
@@ -60,8 +60,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="route_id">Route <span class="required">*</span> :</label>
-                        <select type="text" name="route_id" required>
+                        <label for="shuttle_id">Route <span class="required">*</span> :</label>
+                        <select type="text" name="shuttle_id" required>
                             @if ($shuttle->direction == 'to')
                                 <option value="{{ $shuttle->id }}">BLI, {{ $shuttle->destination }}</option>
                             @else
